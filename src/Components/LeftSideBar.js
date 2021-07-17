@@ -1,8 +1,29 @@
 import React from 'react'
-const LeftSideBar = () => {
+import { Link } from 'react-router-dom'
+import SuggestionBox from './SuggestionBox'
+import FollowersBox from './FollowersBox'
+
+
+const LeftSideBar = (props) => {
+	const {suggestions,followers} = props
 	return (
 			<div className="left-sidebar">
-				LeftSideBar
+				<div className="menu">
+					<div className="menu-section">
+						<Link to='/'>
+							<div className="home" />
+							<h2 className="bold red">For You</h2>
+						</Link>
+					</div>
+					<div className="menu-section">
+						<Link to='/'>
+							<div className="following" />
+							<h2>Following</h2>
+						</Link>
+					</div>
+				</div>
+				<SuggestionBox suggestionsUser={suggestions}/>
+				<FollowersBox followersUser={followers}/>
 			</div>
 		)
 }
