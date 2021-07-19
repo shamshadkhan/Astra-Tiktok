@@ -5,9 +5,9 @@ import postApi from '../utils/postApi'
 import uuid from 'node-uuid'
 
 const Upload = () => {
-	const name = "Shamshad Akther"
-	const username = "shamshad1990"
-	const avatar = "https://i.imgur.com/glt7Xdr.jpg"
+	const name = "Monjur Morshed"
+	const username = "monjur1988"
+	const avatar = "https://i.imgur.com/6auMnvh.jpg"
 	const [video, setVideo] = useState(null)
   	const [caption, setCaption] = useState(null)
 
@@ -20,8 +20,9 @@ const Upload = () => {
 	      is_followed: false,
 	      video: video,
 	      caption: caption,
-	      likes: 0,
+	      likes: 1,
 	      comments: 0,
+	      shares: 1,
 	      timestamp: new Date().toISOString(),
 	      button_visible: true,
 	    }

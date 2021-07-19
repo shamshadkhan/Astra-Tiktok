@@ -31,11 +31,24 @@ const Card = ({ post, toggleFollow }) => {
         </video>
         </div>
         <div className="section socials">
-           <i class="far fa-heart"></i>
-          <div className="social-tag">{post.likes}</div>
-          <i class="far fa-comment-dots"></i>
-          <div className="social-tag">{post.comments}</div>
-          <i class="far fa-share-square"></i>
+          <div className="socials-block">
+            <div className="socials-block-circle">
+              <i class="fas fa-heart fa-2x"></i>
+            </div>
+            <div className="social-tag">{post.likes}</div>
+          </div>
+          <div className="socials-block">
+            <div className="socials-block-circle">
+              <i class="fas fa-comment-dots fa-2x"></i> 
+            </div>
+            <div className="social-tag">{post.comments}</div>
+          </div>
+          <div className="socials-block">
+            <div className="socials-block-circle">
+              <i class="fas fa-share fa-2x"></i>
+            </div>
+            <div className="social-tag">{post.shares}</div>
+          </div>
         </div>
     </div>
   )

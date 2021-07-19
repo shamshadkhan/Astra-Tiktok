@@ -214,6 +214,7 @@ button {
     height: 600px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .minicard {
@@ -234,7 +235,15 @@ button {
 }
 
 .social-tag {
-    margin: 0 20px 0 5px;
+    margin: 5px 10px 0px 10px;
+    font-family: proxima-semibold, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 17px;
+    text-align: center;
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 13px !important;
+    padding: 0px 7px 0px 8px !important;
 }
 .vediosection {
     display: flex;
@@ -263,7 +272,37 @@ button {
 }
 
 .socials {
-    margin-left: 70px;
+    
+    margin-left: 0px;
+    position: absolute;
+    bottom: 30px;
+    right: 104px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.socials-block{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 48px;
+    font-size: 13px;
+}
+
+.socials-block-circle{
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 8px;
+    background-color: rgba(22, 24, 35, 0.06);
+    padding: 12px;
+    border-radius: 100%;
+    margin-left: 0px;
+    cursor: pointer;
 }
 
 .follow-button {
