@@ -129,7 +129,7 @@ hr {
 /* sidebar design*/
 
 .left-sidebar {
-  width: 440px;
+  width: 340px;
   height: 100%;
 }
 
@@ -365,6 +365,119 @@ button {
     background-image: url('https://i.imgur.com/Aq7L3jv.png');
     background-size: 30px;
     margin-right: 15px;
+}
+
+.profile {
+  justify-content: space-around;
+}
+
+.profile .user-profile-block{
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 340px);
+}
+
+.profile-microcard {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.profile-microcard img {
+
+    width: 113px;
+    height: 113px;
+    border-radius: 100%;
+}
+
+.profile-microcard h3 {
+    font-family: sofiapro-bold, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1px;
+    padding-bottom: 4px;
+}
+
+.profile-microcard p {
+    font-family: sofiapro-semibold, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-overflow: ellipsis;
+    height: 25px;
+    overflow: hidden;
+    max-width: 450px;
+    white-space: nowrap;
+}
+
+.profile .count-infos{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 22px;
+    color: rgba(18, 18, 18, 0.75);
+}
+
+.profile .count-infos .number{
+    font-family: sofiapro-semibold, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    display: flex;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    direction: ltr;
+}
+
+.profile .count-infos .number:not(:last-child) {
+    margin-right: 20px;
+}
+
+.profile .count-infos .unit{
+    display: inline-block;
+    font-family: proxima-regular, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-left: 6px;
+}
+
+.profile .videos-block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 44px;
+    margin-bottom: 2px;
+}
+
+.profile .videos-block p{
+    flex: 1 1 0%;
+    position: relative;
+    cursor: pointer;
+    font-family: sofiapro-semibold, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: rgba(18, 18, 18, 0.5);
+}
+
+.profile .videos-block p.active{
+    color: rgb(18, 18, 18);
+}
+
+.profile .videos-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profile .profile-vedio{
+    width: 190px;
+    border-radius: 15px;
+    height: 260px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: radial-gradient(black, transparent);
 }
 @keyframes App-logo-spin {
   from {

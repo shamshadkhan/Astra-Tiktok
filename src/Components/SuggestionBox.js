@@ -3,7 +3,6 @@ import MiniCard from './MiniCard'
 
 const SuggestionBox = (props) => {
   const {suggestionsUser} = props
-  console.log(suggestionsUser)
   return (
     <div className="followers-column">
       <hr />

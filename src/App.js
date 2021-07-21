@@ -3,6 +3,7 @@ import {HashRouter, Switch, Route} from 'react-router-dom'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Upload from './Pages/Upload'
+import Profile from './Pages/Profile'
 import Header from './Components/Header'
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
           <Switch>
             <Route path='/upload' component={Upload}/>
             <Route path='/login' component={Login}/>
+            <Route path='/profile' component={Profile}/>
             <Route path='/' component={Home}/>
           </Switch>
       </div>

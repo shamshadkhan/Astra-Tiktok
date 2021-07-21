@@ -22,8 +22,13 @@ const LeftSideBar = (props) => {
 						</Link>
 					</div>
 				</div>
-				<SuggestionBox suggestionsUser={suggestions}/>
-				<FollowersBox followersUser={followers}/>
+				{
+					suggestions && <SuggestionBox suggestionsUser={suggestions}/>
+				}
+				{
+					followers && <FollowersBox followersUser={followers}/>
+				}
+				
 			</div>
 		)
 }
