@@ -1,9 +1,9 @@
 const uuid = require("node-uuid");
-const { getPostCollection } = require("./utils/astraClient");
+const { getUserCollection } = require("./utils/astraClient");
 
 let id = uuid.v1();
 exports.handler = async function (event) {
-  const posts = await getPostCollection();
+  const posts = await getUserCollection();
   try {
     console.log(event.body)
     const response = await posts.create(id,event.body);

@@ -16,11 +16,18 @@ const getAstraClient = async () => {
   return astraClient;
 };
 
-const getCollection = async () => {
+const getPostCollection = async () => {
   const documentClient = await getAstraClient();
   return documentClient
     .namespace(process.env.ASTRA_DB_KEYSPACE)
     .collection("tktkposts");
 };
 
-module.exports = { getAstraClient, getCollection };
+const getUserCollection = async () => {
+  const documentClient = await getAstraClient();
+  return documentClient
+    .namespace(process.env.ASTRA_DB_KEYSPACE)
+    .collection("tktkusers");
+};
+
+module.exports = { getAstraClient, getPostCollection, getUserCollection };

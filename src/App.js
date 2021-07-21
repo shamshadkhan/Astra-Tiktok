@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Upload from './Pages/Upload'
 import Profile from './Pages/Profile'
+import Signup from './Pages/Signup'
 import Header from './Components/Header'
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
             <Route path='/upload' component={Upload}/>
             <Route path='/login' component={Login}/>
             <Route path='/profile' component={Profile}/>
+            <Route path='/signup' component={Signup}/>
             <Route path='/' component={Home}/>
           </Switch>
       </div>

@@ -10,7 +10,7 @@ const Home = () => {
 	const [vedioUserList, setVedioUserList] = useState([]);
 	const user = {
 		name: "Shamshad Akther",
-		username: "Shamshad1990",
+		username: "shamshad1990",
 		avatar: "https://i.imgur.com/glt7Xdr.jpg",
 		following: 0,
 		follower: 0,
@@ -23,7 +23,7 @@ const Home = () => {
 	 const setData = () => {
 	 	const following = postList.filter(post => post.is_followed === true)
 	    setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
-	    const uservedio = postList.filter(post => post.username.localeCompare("shamshad1990") === 0)
+	    const uservedio = postList.filter(post => post.username.localeCompare(user.username) === 0)
 	    setVedioUserList(uservedio.sort((a, b) => a.likes < b.likes ? 1 : -1))
 	 }
 

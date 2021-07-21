@@ -1,7 +1,7 @@
-const { getPostCollection } = require("./utils/astraClient");
+const { getUserCollection } = require("./utils/astraClient");
 
 exports.handler = async function () {
-  const posts = await getPostCollection();
+  const posts = await getUserCollection();
   try {
     const response = await posts.find({});
     return {

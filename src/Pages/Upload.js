@@ -20,9 +20,9 @@ const Upload = () => {
 	      is_followed: false,
 	      video: video,
 	      caption: caption,
-	      likes: 1,
+	      likes: 0,
 	      comments: 0,
-	      shares: 1,
+	      shares: 0,
 	      timestamp: new Date().toISOString(),
 	      button_visible: true,
 	    }
