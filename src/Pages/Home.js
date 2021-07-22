@@ -8,10 +8,22 @@ const Home = () => {
 	const [postList, setPostList] = useState([]);
 	const [suggestionList, setSuggestionList] = useState([]);
 	const [followerList, setFollowerList] = useState([]);
+  	const [userToToggle, setUserToToggle] = useState(null);
 
   	const getRestPost = async () => {
-	    const posts = postApi.getRestPost().then((postList) => setPostList( postList.sort((a, b) => a.date < b.date ? 1 : -1) ));
+	    const posts = postApi.getRestPost().then((postList) => setPostList( postList.sort((a, b) => a.timestamp < b.timestamp ? 1 : -1) ));
 	 };
+
+	if(userToToggle) {
+		const newValue = userToToggle.is_followed ? false : true
+		const item = {
+			id: userToToggle.id,
+			data: {is_followed: newValue}
+		}
+		console.log(item)
+		postApi.updateRestPost(item).then(() => getRestPost())
+		setUserToToggle(null);
+	}
 
 	 const setData = () => {
 	 	const following = postList.filter(post => post.is_followed === true)
@@ -32,7 +44,7 @@ const Home = () => {
 	return (
 			<div className="container">
 				<LeftSideBar suggestions={suggestionList} followers={followerList}/>
-				<Posts postList={postList}/>
+				<Posts postList={postList} setUserToToggle={(userToToggle) => setUserToToggle(userToToggle)}/>
 			</div>
 		)
 }

@@ -1,11 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 import SuggestionBox from './SuggestionBox'
 import FollowersBox from './FollowersBox'
 
 
 const LeftSideBar = (props) => {
-	const {suggestions,followers} = props
+	const {suggestions,followers,profile} = props
+	let history = useHistory();
+
+	const userLogout = () => {
+		localStorage.clear();
+	    history.push('/login')
+  	};
+
 	return (
 			<div className="left-sidebar">
 				<div className="menu">
@@ -21,6 +28,15 @@ const LeftSideBar = (props) => {
 							<h2>Following</h2>
 						</Link>
 					</div>
+					{
+						profile && (
+							<div className="menu-section" onClick={()=>userLogout()}>
+							<i class="fas fa-sign-out-alt fa-lg"></i>
+								<h2>Logout</h2>
+							</div>
+						)
+					}
+					
 				</div>
 				{
 					suggestions && <SuggestionBox suggestionsUser={suggestions}/>

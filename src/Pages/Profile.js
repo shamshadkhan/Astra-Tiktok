@@ -7,15 +7,9 @@ const Home = () => {
 
 	const [postList, setPostList] = useState([]);
 	const [followerList, setFollowerList] = useState([]);
-	const [vedioUserList, setVedioUserList] = useState([]);
-	const user = {
-		name: "Shamshad Akther",
-		username: "shamshad1990",
-		avatar: "https://i.imgur.com/glt7Xdr.jpg",
-		following: 0,
-		follower: 0,
-		likes: 0
-	}
+	const [userVideoList, setUserVideoList] = useState([]);
+	const user = JSON.parse(localStorage.getItem('user'))
+
   	const getRestPost = async () => {
 	    const posts = postApi.getRestPost().then((postList) => setPostList( postList));
 	 };
@@ -24,7 +18,7 @@ const Home = () => {
 	 	const following = postList.filter(post => post.is_followed === true)
 	    setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
 	    const uservedio = postList.filter(post => post.username.localeCompare(user.username) === 0)
-	    setVedioUserList(uservedio.sort((a, b) => a.likes < b.likes ? 1 : -1))
+	    setUserVideoList(uservedio.sort((a, b) => a.likes < b.likes ? 1 : -1))
 	 }
 
 	  useEffect(() => {
@@ -37,7 +31,7 @@ const Home = () => {
 
 	return (
 			<div className="container profile">
-				<LeftSideBar followers={followerList}/>
+				<LeftSideBar followers={followerList} profile={true}/>
 				<div className="user-profile-block">
 					<div className="profile-microcard">
 				        <MicroCard 
@@ -59,7 +53,7 @@ const Home = () => {
 						<p className="active">Videos</p>
 						<div className="videos-list">
 						{
-							vedioUserList.map((user,index) => (
+							userVideoList.map((user,index) => (
 								<video className="profile-vedio" controls>
 						          <source src={user.video} type="video/mp4" />
 						        </video>

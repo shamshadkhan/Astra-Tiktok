@@ -1,7 +1,6 @@
 // CREATE
 const addRestPost = async (post) => {
   const stringifiedBody = JSON.stringify(post);
-  console.log(stringifiedBody)
   const response = await fetch("/.netlify/functions/addRestPost", {
     body: stringifiedBody,
     method: "POST",
@@ -24,7 +23,6 @@ const updateRestPost = async (post) => {
     body: stringifiedBody,
     method: "PUT",
   });
-
   let responsejson = await response.json();
   return responsejson;
 };

@@ -136,6 +136,7 @@ hr {
 .menu-section {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 30px 0 0px 0;
 }
 
@@ -479,6 +480,11 @@ button {
     margin-bottom: 10px;
     background: radial-gradient(black, transparent);
 }
+
+.profile .fa-sign-out-alt{
+    margin-right:15px;
+}
+
 .login {
   display: flex;
   flex-direction: column;
@@ -551,9 +557,37 @@ button {
 
 button:disabled,
 button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-size: 15px;
+    font-weight: bold;
+    width: 35%;
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    position: relative;
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-size: 15px;
+    font-weight: bold;
+    width: 35%;
 }
 
 .login-authorize {

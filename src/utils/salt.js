@@ -20,10 +20,10 @@ const hashPassword = (clear) => {
 
 // (C) TEST ENCRYPT
 // Save BOTH the password and salt into database or file
-var clearpass = "He110Wor!d";
+/*var clearpass = "He110Wor!d";
 var creeped = hashPassword(clearpass);
 console.log("===== HASHED PASSWORD + SALT =====");
-console.log(creeped);
+console.log(creeped);*/
 
 // (D) VALIDATE PASSWORD
 const validatePassword = (userpass, hashedpass, salt) => {
@@ -35,10 +35,10 @@ const validatePassword = (userpass, hashedpass, salt) => {
 
 // (E) TEST VALIDATE
 // clearpass = "FOOBAR";
-var validated = validatePassword(clearpass, creeped.hash, creeped.salt);
+/*var validated = validatePassword(clearpass, creeped.hash, creeped.salt);
 console.log("===== VALIDATION =====");
 console.log("Clear password: " + clearpass);
-console.log("Validation status: " + validated);
+console.log("Validation status: " + validated);*/
 
 const default_export = {
   hashPassword,

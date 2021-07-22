@@ -1,22 +1,21 @@
 import React,{useState} from 'react'
-import LeftSideBar from '../Components/LeftSideBar'
+import { useHistory } from 'react-router-dom'
 import Posts from '../Components/Posts'
 import postApi from '../utils/postApi'
 import uuid from 'node-uuid'
 
 const Upload = () => {
-	const name = "Monjur Morshed"
-	const username = "monjur1988"
-	const avatar = "https://i.imgur.com/6auMnvh.jpg"
 	const [video, setVideo] = useState(null)
   	const [caption, setCaption] = useState(null)
+  	const user = JSON.parse(localStorage.getItem('user'))
+	let history = useHistory();
 
 	const addRestPost = async (text) => {
 	    const item = {
 	      id: uuid.v1(),
-	      name: name,
-	      username: username,
-	      avatar: avatar,
+	      name: user.name,
+	      username: user.username,
+	      avatar: user.avatar,
 	      is_followed: false,
 	      video: video,
 	      caption: caption,
@@ -27,13 +26,14 @@ const Upload = () => {
 	      button_visible: true,
 	    }
 	    await postApi.addRestPost(item);
+	    history.push('/')
   };
 
 	return (
 			<div className="upload-page">
 		        <br />
 		        <h1>Upload video</h1>
-		        <p>This video will be published to @{username}</p>
+		        <p>This video will be published to @{user.username}</p>
 		        <div className='container'>
 		          <form onSubmit={addRestPost}>
 		            <div className='section'>

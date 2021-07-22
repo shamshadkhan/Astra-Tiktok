@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
-import LeftSideBar from '../Components/LeftSideBar'
 import userApi from '../utils/userApi'
 import salt from '../utils/salt'
 import uuid from 'node-uuid'
@@ -13,16 +12,16 @@ const Signup = () => {
 	const [password, setPassword] = useState("")
 	const [userList, setUserList] = useState("")
 	const [message, setMessage] = useState("")
+	const [messageClass, setMessageClass] = useState("")
 
 	const clearState = () => {
 		setName("")
 		setUsername("")
 		setAvatar("")
 		setPassword("")
-		setMessage("")
 	}
 
-	const addRestUser = async (text) => {
+	const addRestUser = async () => {
 	    const item = {
 	      id: uuid.v1(),
 	      name: name,
@@ -37,10 +36,12 @@ const Signup = () => {
 	    	const userExists = ( userList.filter(user => user.username.localeCompare(item.username) === 0))
 	    	if(userExists.length==0) {
 	    		setMessage("User Created")
+	    		setMessageClass("success")
 	    		userApi.addRestUser(item)
 	    		clearState()
 	    	}
 	    	else {
+	    		setMessageClass("error")
 	    		setMessage("User Already Exists")
 	    	}
 	    });
@@ -49,7 +50,7 @@ const Signup = () => {
 	return (
 			<div className="container login">
 				<div className="login-title">Signup to Tik-Tok</div>
-				<p>{message}</p>
+				<p className={messageClass}>{message}</p>
 				<div className="login-input-field">
 					<input type="text" placeholder="Fullname" value={name} onChange={(e)=>setName(e.target.value)}/>
 				</div>

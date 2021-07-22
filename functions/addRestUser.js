@@ -5,7 +5,6 @@ let id = uuid.v1();
 exports.handler = async function (event) {
   const posts = await getUserCollection();
   try {
-    console.log(event.body)
     const response = await posts.create(id,event.body);
     return {
       statusCode: 200,

@@ -1,7 +1,6 @@
 // CREATE
 const addRestUser = async (post) => {
   const stringifiedBody = JSON.stringify(post);
-  console.log(stringifiedBody)
   const response = await fetch("/.netlify/functions/addRestUser", {
     body: stringifiedBody,
     method: "POST",

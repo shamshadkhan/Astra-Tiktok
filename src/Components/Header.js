@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
+	const user = JSON.parse(localStorage.getItem('user'))
 	return (
 		<div className="header">
 			<Link to='/'>
@@ -9,12 +10,18 @@ const Header = () => {
 	      	</Link>
 			<div className="upload-container">
 				<div className="section">
-				  <Link to='/upload'>
-				    <div className="upload" />
-				  </Link>
-				  <Link to='/profile'>
-				  <img className="personal" src="https://i.imgur.com/glt7Xdr.jpg" />
-				  </Link>  
+				{
+					user && (
+							<>
+							<Link to='/upload'>
+								<div className="upload" />
+							</Link>
+							<Link to='/profile'>
+								<img className="personal" src={user.avatar} />
+							</Link>  
+							</>
+						)
+				}				  
 				</div>
 			</div>
 		</div>
