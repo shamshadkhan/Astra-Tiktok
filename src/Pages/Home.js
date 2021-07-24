@@ -6,8 +6,8 @@ import postApi from '../utils/postApi'
 const Home = () => {
 
 	const [postList, setPostList] = useState([]);
-	const [suggestionList, setSuggestionList] = useState([]);
-	const [followerList, setFollowerList] = useState([]);
+	let [suggestionList, setSuggestionList] = useState([]);
+	let [followerList, setFollowerList] = useState([]);
   	const [userToToggle, setUserToToggle] = useState(null);
 
   	const getRestPost = async () => {
@@ -25,21 +25,17 @@ const Home = () => {
 		setUserToToggle(null);
 	}
 
-	 const setData = () => {
-	 	const following = postList.filter(post => post.is_followed === true)
-	    setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
+	useEffect(() => {
+		getRestPost();
+	}, []);
 
-	    const follow = postList.filter((post) => post.is_followed === false)
-	    setSuggestionList(follow.sort((a, b) => a.likes < b.likes ? 1 : -1))
-	 }
+	useEffect(() => {
+		const following = postList.filter(post => post.is_followed === true)
+		setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
 
-	  useEffect(() => {
-	    getRestPost();
-	  }, []);
-
-	  useEffect(() => {
-	    setData();
-	  }, [postList]);
+		const follow = postList.filter((post) => post.is_followed === false)
+		setSuggestionList(follow.sort((a, b) => a.likes < b.likes ? 1 : -1))
+	}, [postList]);
 
 	return (
 			<div className="container">

@@ -14,20 +14,16 @@ const Home = () => {
 	    postApi.getRestPost().then((postList) => setPostList( postList));
 	 };
 
-	 const setData = () => {
-	 	const following = postList.filter(post => post.is_followed === true)
+	useEffect(() => {
+	    getRestPost();
+	 }, []);
+
+	useEffect(() => {
+	    const following = postList.filter(post => post.is_followed === true)
 	    setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
 	    const uservedio = postList.filter(post => post.username.localeCompare(user.username) === 0)
 	    setUserVideoList(uservedio.sort((a, b) => a.likes < b.likes ? 1 : -1))
-	 }
-
-	  useEffect(() => {
-	    getRestPost();
-	  }, []);
-
-	  useEffect(() => {
-	    setData();
-	  }, [postList]);
+	}, [postList]);
 
 	return (
 			<div className="container profile">

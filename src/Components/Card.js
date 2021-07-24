@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({ post, toggleFollow }) => {
 
   const timestamp = post.timestamp
-  const timeStampReformat = timestamp.slice(2, 7)
+  const timeStampReformat = timestamp.slice(0, 10)
 
   return (
     <div className="card">
