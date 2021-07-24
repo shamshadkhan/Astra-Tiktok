@@ -6,8 +6,8 @@ import postApi from '../utils/postApi'
 const Home = () => {
 
 	const [postList, setPostList] = useState([]);
-	const [followerList, setFollowerList] = useState([]);
-	const [userVideoList, setUserVideoList] = useState([]);
+	let followerList = [];
+	let userVideoList = [];
 	const user = JSON.parse(localStorage.getItem('user'))
 
   	const getRestPost = async () => {
@@ -18,12 +18,12 @@ const Home = () => {
 	    getRestPost();
 	 }, []);
 
-	useEffect(() => {
+	if(postList) {
 	    const following = postList.filter(post => post.is_followed === true)
-	    setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
+	    followerList=(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
 	    const uservedio = postList.filter(post => post.username.localeCompare(user.username) === 0)
-	    setUserVideoList(uservedio.sort((a, b) => a.likes < b.likes ? 1 : -1))
-	}, [postList]);
+	    userVideoList=(uservedio.sort((a, b) => a.likes < b.likes ? 1 : -1))
+	};
 
 	return (
 			<div className="container profile">

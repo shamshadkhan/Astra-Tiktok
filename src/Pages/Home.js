@@ -6,8 +6,8 @@ import postApi from '../utils/postApi'
 const Home = () => {
 
 	const [postList, setPostList] = useState([]);
-	let [suggestionList, setSuggestionList] = useState([]);
-	let [followerList, setFollowerList] = useState([]);
+	let suggestionList = [];
+	let followerList = [];
   	const [userToToggle, setUserToToggle] = useState(null);
 
   	const getRestPost = async () => {
@@ -29,13 +29,13 @@ const Home = () => {
 		getRestPost();
 	}, []);
 
-	useEffect(() => {
+	if(postList) {
 		const following = postList.filter(post => post.is_followed === true)
-		setFollowerList(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
+		followerList=(following.sort((a, b) => a.likes < b.likes ? 1 : -1))
 
 		const follow = postList.filter((post) => post.is_followed === false)
-		setSuggestionList(follow.sort((a, b) => a.likes < b.likes ? 1 : -1))
-	}, [postList]);
+		suggestionList=(follow.sort((a, b) => a.likes < b.likes ? 1 : -1))
+	};
 
 	return (
 			<div className="container">
