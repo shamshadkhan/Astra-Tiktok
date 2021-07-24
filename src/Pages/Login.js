@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import userApi from '../utils/userApi'
 import salt from '../utils/salt'
@@ -14,7 +14,7 @@ const Login = () => {
 	    await userApi.getRestUser().then((userList) => {
 	    	const userExists = ( userList.filter(user => user.username.localeCompare(username) === 0))
 	    	const validate = userExists.length>0 ? salt.validatePassword(password,userExists[0].password.hash,userExists[0].password.salt):false
-	    	if(userExists.length==0 || !validate) {
+	    	if(userExists.length ===0 || !validate) {
 	    		setMessage("Authentication Failed")
 	    		setMessageClass("error")
 	    	}

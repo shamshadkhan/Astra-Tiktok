@@ -11,7 +11,7 @@ const Home = () => {
 	const user = JSON.parse(localStorage.getItem('user'))
 
   	const getRestPost = async () => {
-	    const posts = postApi.getRestPost().then((postList) => setPostList( postList));
+	    postApi.getRestPost().then((postList) => setPostList( postList));
 	 };
 
 	 const setData = () => {

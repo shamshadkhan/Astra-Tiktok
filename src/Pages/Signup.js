@@ -10,7 +10,6 @@ const Signup = () => {
 	const [username, setUsername] = useState("")
 	const [avatar, setAvatar] = useState("")
 	const [password, setPassword] = useState("")
-	const [userList, setUserList] = useState("")
 	const [message, setMessage] = useState("")
 	const [messageClass, setMessageClass] = useState("")
 
@@ -34,7 +33,7 @@ const Signup = () => {
 	    }
 	    await userApi.getRestUser().then((userList) => {
 	    	const userExists = ( userList.filter(user => user.username.localeCompare(item.username) === 0))
-	    	if(userExists.length==0) {
+	    	if(userExists.length ===0) {
 	    		setMessage("User Created")
 	    		setMessageClass("success")
 	    		userApi.addRestUser(item)

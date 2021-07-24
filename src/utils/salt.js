@@ -30,7 +30,7 @@ const validatePassword = (userpass, hashedpass, salt) => {
   let hash = crypto.createHmac('sha512', salt);
   hash.update(userpass);
   userpass = hash.digest('hex');
-  return userpass == hashedpass;
+  return userpass === hashedpass;
 };
 
 // (E) TEST VALIDATE

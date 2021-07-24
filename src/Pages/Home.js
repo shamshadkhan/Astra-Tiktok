@@ -11,7 +11,7 @@ const Home = () => {
   	const [userToToggle, setUserToToggle] = useState(null);
 
   	const getRestPost = async () => {
-	    const posts = postApi.getRestPost().then((postList) => setPostList( postList.sort((a, b) => a.timestamp < b.timestamp ? 1 : -1) ));
+	    postApi.getRestPost().then((postList) => setPostList( postList.sort((a, b) => a.timestamp < b.timestamp ? 1 : -1) ));
 	 };
 
 	if(userToToggle) {

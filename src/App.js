@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import {HashRouter, Switch, Route} from 'react-router-dom'
 import Home from './Pages/Home'
 import Login from './Pages/Login'

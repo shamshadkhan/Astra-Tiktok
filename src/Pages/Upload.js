@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom'
-import Posts from '../Components/Posts'
 import postApi from '../utils/postApi'
 import uuid from 'node-uuid'
 

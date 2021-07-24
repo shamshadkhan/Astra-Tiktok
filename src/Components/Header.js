@@ -17,7 +17,7 @@ const Header = (props) => {
 								<div className="upload" />
 							</Link>
 							<Link to='/profile'>
-								<img className="personal" src={user.avatar} />
+								<img className="personal" src={user.avatar} alt="avatar"/>
 							</Link>  
 							</>
 						)
