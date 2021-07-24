@@ -23,6 +23,9 @@ Demo: https://astra-tiktok.netlify.app
 ## Profile
 ![image](https://user-images.githubusercontent.com/12265243/126870666-a9600e7c-6810-4096-b40f-43e051406694.png)
 
+## Upload
+![image](https://user-images.githubusercontent.com/12265243/126874643-0207bab9-dc82-415b-bb79-c023cd14ab4a.png)
+
 ## Objectives
 * Deploy a TikTok clone "locally" and to production
 * Learn how to use the @astrajs document API to quickly and easily interact with JSON documents
