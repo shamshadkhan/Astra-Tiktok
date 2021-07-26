@@ -29,38 +29,42 @@ const Upload = () => {
   };
 
 	return (
+		<div className="container">	
 			<div className="upload-page">
 		        <br />
 		        <h1>Upload video</h1>
 		        <p>This video will be published to @{user.username}</p>
-		        <div className='container'>
-		          <form onSubmit={addRestPost}>
+		        <div className='upload-block'>
 		            <div className='section'>
-		              <div className="image-upload"></div>
-		              <div className="form-section">
-		                <div className='section input-section'>
-		                  <label className="bold">Caption</label>
-		                  <input
-		                    className='input'
-		                    name='caption'
-		                    onChange={(e) => setCaption(e.target.value)}
-		                  />
-		                </div>
-		                <div className="break"></div>
-		                <div className='section input-section'>
-		                  <label className="bold">Video Url</label>
-		                  <input
-		                    className='input'
-		                    name='video'
-		                    onChange={(e) => setVideo(e.target.value)}
-		                  />
-		                </div>
-		              </div>
-		            </div>			
-		            <button>Post</button>
-		          </form>
+		            	{
+		            		video ?
+		            		(
+		            			<video className="video" controls>
+						          <source src={video} type="video/mp4" />
+						        </video>
+							    
+		            		)
+		            		:
+		            		(
+			            		<img src="https://i.imgur.com/woseSJL.png" alt="upload" className="upload-image"/>
+		            		)
+		            	}
+		            </div>
+
+					<div className="upload-form-section">
+						<div className='section input-section'>
+						     <div className="upload-input-field">
+								<input type="text" placeholder="Caption" value={caption} onChange={(e)=>setCaption(e.target.value)}/>
+							</div>
+							<div className="upload-input-field">
+								<input type="text" placeholder="Video Url" value={video} onChange={(e)=>setVideo(e.target.value)}/>
+							</div>
+						</div>
+		            	<button className="upload-button" onClick={() => addRestPost()} disabled={(!caption||!video)?"disabled":""}>Post</button>
+					</div>
 		        </div>
 		    </div>
+		</div>
 		)
 }
 
