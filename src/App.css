@@ -178,10 +178,10 @@ hr {
 
 .input-section {
     margin: 10px;
-    width: 700px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .form-section {
@@ -501,7 +501,7 @@ button {
     font-weight: bolder;
 }
 
-.login-input-field {
+.login-input-field,.upload-input-field {
     border-radius: 4px;
     position: relative;
     margin-top: 8px;
@@ -516,7 +516,7 @@ button {
     width:40%;
 }
 
-.login-input-field input {
+.login-input-field input , .upload-input-field input {
     height: 100%;
     width: 100%;
     padding: 0;
@@ -539,7 +539,7 @@ button {
     font-family: "ProximaNova-regular";
 }
 
-.login-button {
+.login-button, .upload-button {
     font-family: "proxima-bold",Arial,Tahoma,PingFangSC,sans-serif;
     font-weight: 700;
     min-width: 100px;
@@ -631,6 +631,29 @@ button[disabled]{
     line-height: 18px;
     font-family: "ProximaNova-semibold";
     margin-left: 5px;
+}
+.upload-page {
+    width:100%;
+}
+
+.upload-form-section {
+    width: calc(100% - 270px);
+}
+
+.upload-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upload-input-field {
+  width: 90% !important;
+}
+
+.upload-image {
+    width: 270px;
+    height: 490px;
 }
 
 @keyframes App-logo-spin {
